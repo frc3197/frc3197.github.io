@@ -1,0 +1,12 @@
+- name: Home
+  link: /
+- name: About
+  link: /about.html
+- name: Blog
+  link: /blog.html
+- name: Resource Hub
+  link: /resource_hub.html
+- name: GitHub Code
+  link: https://github.com/frc3197
+- name: Trello Board
+  link: https://trello.com/b/NHZXiojv/build-season
