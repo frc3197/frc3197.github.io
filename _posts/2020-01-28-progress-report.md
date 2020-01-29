@@ -7,3 +7,64 @@ IT WORKS OH MY GOD.
 
 Okay so the robot will now relatively accurately follow a target with reflective tape. Below is a video of the result.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/62tZ0-axoKE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Pretty cool right? How does it work?
+There are a total of three commands that we are using. They are listed as follows.
+- TrackLimelightTurn
+- TrackLimelightDistance
+- TrackLimelightFollow
+
+That's quite a few commands. But in reality, the only command we're running is TrackLimelightFollow. The hierarchy of commands looks a little something like this.
+- TrackLimelightFollow
+  - TrackLimelightTurn
+  - TrackLimelightDistance
+
+Let's start from the lowest level: TrackLimelightTurn and TrackLimelightDistance.
+
+### TrackLimelightTurn
+TrackLimelightTurn is a PID command that turns the robot based on the X Offset. This X Offset is taken from the limelight, which publishes the X Offset it calculates to a network table (entry "tx").
+
+`NetworkTableInstance.getDefault().getTable("limelight-hounds").getEntry("tx").getDouble(0);`
+
+After getting that X Offset, we use that as the measurement for the PID command and have the robot optimize itself so that tx reaches 0. In this way, the robot can turn to the target. The following are the PID values that we eventually got after tuning.
+```
+P = 0.1
+I = 0.000125
+D = 0.02175
+```
+
+### TrackLimelightDistance
+TrackLimelightDistance is a PID Command that moves the robot based on the Y Offset. That sounds a bit weird, but the basic concept behind it allows the robot to maintain a set distance.
+
+The concept is that as an object moves further away from an object, it moves upwards in the observers vision. This is seen by the limelight in a small increase in ty. Using that small amount of error as the measurement for the PID command, we can send the output to the drive train and let it maintain a constant distance from the object. The following are the PID values that we eventually got after tuning.
+```
+P = 0.75;
+I = 0;
+D = 0.2025;
+```
+
+### TrackLimelightFollow
+TrackLimelightFollow is where we combine the two PID commands above (TrackLimelightTurn and TrackLimelightDistance) into one Sequential Command Group that constantly runs while a button is held. Unfortunately, a Parallel Command Group won't let you run two commands that use the same subsystem in parallel. But instead, running the two commands sequentially with a relatively large tolerance (or deadzone) achieves a similar effect.
+
+There is a second solution where the output of both TrackLimelightTurn and TrackLimelightDistance can be added together. However, the other commands are not being run so at the moment this second solution does not work, and the first solution works well enough that this second solution will not be needed. However, there is a theoretical solution. The following is the method we are calling.
+```
+public double usePIDOutput() {
+  return d;
+}
+```
+d has been set to be the output of the PID Command, and so should return the output of the PID Controller that the PID Command uses. However, since the PID Command is not actually running, the PID Controller is never calculating. To remedy this problem, we could just tell the PID Controller to manually calculate at the beginning of this method.
+```
+public double usePIDOutput() {
+  d = getController().calculate();
+  return d;
+}
+```
+This has not been tested and likely will not be tested, but it's just what I'm thinking would work as a solution to fix this second solution.
+
+Alright this has been a lot of typing and I'm tired and should be working on actual code so here's the quick spiel on what we're going to do.
+
+**What we're going to be doing thursday**
+- Figure out why the color sensor isn't returning things
+- Fix inconsistencies with limelight
+
+Alright I'm done bye
