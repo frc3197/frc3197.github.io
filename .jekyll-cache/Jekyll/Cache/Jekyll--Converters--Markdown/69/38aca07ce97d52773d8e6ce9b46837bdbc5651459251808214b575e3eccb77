@@ -1,0 +1,26 @@
+I"�<p>The first week of build season is coming to a close. Due to weather related incidents, tomorrow will be a shortened build day, going from 10:00 to 5:00 instead of from 10:00 to 10:00. However, many things are planned for tomorrow and, combined with what we have done in these three days, the coding team is off to a good start</p>
+
+<p><strong>What we accomplished in these last 3 days</strong></p>
+<ul>
+  <li>Coded Drive Train Framework</li>
+  <li>Familiarized with WPILib 2020 Command-Based Framework</li>
+  <li>Coded basic autonomous involving a single Command</li>
+  <li>Coded autonomous involving a Sequential Command group
+    <ul>
+      <li>Reminder: In Command Groups, isFinished() should return true so that the command group can move on to the next command.</li>
+    </ul>
+  </li>
+  <li>Coded a button that ran an autonomous command</li>
+  <li>Coded a button that ran a Sequential Command Groups</li>
+</ul>
+
+<p><strong>What we are planning to do tomorrow</strong></p>
+<ul>
+  <li>Learn/Implement PID on Drive Train</li>
+  <li>Begin working with Limelight</li>
+  <li>Code a “chase” protocol and test in autonomous</li>
+  <li>Code an Autonomous script that drives forward, turns 90 degrees, then drives forward with smooth turning</li>
+</ul>
+
+<p>By the way, Gradle makes me want to commit sudoku, so let’s just abandon the automatic javadoc thing. It’s not worth it. Also I need to update the CSS on this website lest it stay looking like it’s in the 80s. Okay bye.</p>
+:ET
