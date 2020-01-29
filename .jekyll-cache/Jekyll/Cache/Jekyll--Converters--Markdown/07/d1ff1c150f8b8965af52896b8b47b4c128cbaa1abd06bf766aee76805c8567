@@ -1,48 +1,4 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Test Post</title>
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Open+Sans+Condensed:300&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <nav>
-  
-    <a href="/" >
-      Home
-    </a>
-  
-    <a href="/about.html" >
-      About
-    </a>
-  
-    <a href="/blog.html" >
-      Blog
-    </a>
-  
-    <a href="/resource_hub.html" >
-      Resource Hub
-    </a>
-  
-    <a href="https://frc3197.github.io/2020-Robot/" >
-      Code Documentation
-    </a>
-  
-    <a href="https://github.com/frc3197" >
-      GitHub Code
-    </a>
-  
-    <a href="https://trello.com/b/NHZXiojv/build-season" >
-      Trello Board
-    </a>
-  
-</nav>
-
-    <h1>Test Post</h1>
-<p>07 Jan 2020 - Vincent Chen</p>
-
-<p>Post one is live. Jekyll is an absolute godsend, not gonna lie. This is going to make website creation so much easier.</p>
+I"<p>Post one is live. Jekyll is an absolute godsend, not gonna lie. This is going to make website creation so much easier.</p>
 
 <p><strong>What we’ve accomplished today</strong></p>
 
@@ -64,7 +20,4 @@
 </ul>
 
 <p>Alright, that’s it. Regular posts will happen once coding really gets into full-swing.</p>
-
-
-  </body>
-</html>
+:ET
