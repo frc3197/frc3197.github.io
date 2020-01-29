@@ -1,0 +1,38 @@
+I"�<p>IT WORKS.
+IT WORKS OH MY GOD.</p>
+
+<p>Okay so the robot will now relatively accurately follow a target with reflective tape. Below is a video of the result.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/62tZ0-axoKE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>Pretty cool right? How does it work?
+There are a total of five commands that we are using. They are listed as follows.</p>
+<ul>
+  <li>TrackLimelightX</li>
+  <li>TrackLimelightY</li>
+  <li>TrackLimelightTurn</li>
+  <li>TrackLimelightDistance</li>
+  <li>TrackLimelightFollow</li>
+</ul>
+
+<p>That’s a lot of commands. But in reality, the only command we’re running is TrackLimelightFollow. The hierarchy of commands looks a little something like this.</p>
+<ul>
+  <li>TrackLimelightFollow
+    <ul>
+      <li>TrackLimelightTurn
+        <ul>
+          <li>TrackLimelightX</li>
+        </ul>
+      </li>
+      <li>TrackLimelightDistance
+        <ul>
+          <li>TrackLimelightY</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Let’s start from the lowest level: TrackLimelightX and TrackLimelightY.</p>
+<h3 id="tracklimelightx">TrackLimelightX</h3>
+<h3 id="tracklimelighty">TrackLimelightY</h3>
+:ET
