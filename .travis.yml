@@ -1,4 +1,3 @@
 language: ruby
 install: gem install jekyll
-script: bundler exec jekyll build --trace
-cache: bundler
+script: jekyll build --trace
